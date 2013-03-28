@@ -1,0 +1,6 @@
+add some combinators to Formats for converting between format types
+
+add some more datatypes (Tree, BinaryTree, etc)
+
+fix bug with implementation of union
+

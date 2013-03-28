@@ -1,0 +1,17 @@
+syntax: glob
+
+*~
+*.orig
+scala/sbt
+target/
+scala/project/boot
+*.swp
+*.swo
+*.suo
+tags
+.idea
+*.iml
+bin
+obj
+out
+TestResults
