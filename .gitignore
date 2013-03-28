@@ -1,6 +1,7 @@
 *~
 *.orig
 scala/sbt
+scala/.lib
 target/
 scala/project/boot
 *.swp

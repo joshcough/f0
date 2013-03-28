@@ -222,10 +222,10 @@ object Readers extends SumReaders {
   }
 
   def listR[A,F](r: Reader[A,F]): Reader[List[A],RepeatF[F]] =
-    foldR(r)(List[A]())((buf,a) => a :: buf) map (_ reverse)
+    foldR(r)(List[A]())((buf,a) => a :: buf) map (_.reverse)
 
   def streamR[A,F](r: Reader[A,F]): Reader[List[A],StreamF[F]] =
-    foldStreamR(r)(List[A]())((buf,a) => a :: buf) map (_ reverse)
+    foldStreamR(r)(List[A]())((buf,a) => a :: buf) map (_.reverse)
 
   def attempt[A,F](r: Reader[A,F]) = new Reader[Either[Exception,A],F] {
     def bind(s: Source) = new Get[Either[Exception,A]] {
