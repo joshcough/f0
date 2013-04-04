@@ -277,5 +277,6 @@ object Read {
     // it seems to add some trailing bytes (white space) for non-ascii strings.
     //val cbuf = utf8.decode(java.nio.ByteBuffer.wrap(buf)).array
     new String(buf, utf8)
+    sys.error("final sbt github integration test")
   }
 }
