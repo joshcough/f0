@@ -274,6 +274,7 @@ object Read {
     val n    = Read.intF(s)
     val buf  = s.readBytes(n)
     val cbuf = utf8.decode(java.nio.ByteBuffer.wrap(buf)).array
+    sys.error("eiorjweoirjweiorj")
     new String(cbuf, utf8)
   }
 }
