@@ -275,6 +275,6 @@ object Read {
     val buf  = s.readBytes(n)
     //val cbuf = utf8.decode(java.nio.ByteBuffer.wrap(buf)).array
     //sys.error("eiorjweoirjweiorj")
-    new String(s.readBytes(n), utf8)
+    new String(buf, utf8)
   }
 }
