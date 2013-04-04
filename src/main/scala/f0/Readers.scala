@@ -273,8 +273,9 @@ object Read {
   def stringF(s: Source): String = {
     val n    = Read.intF(s)
     val buf  = s.readBytes(n)
+    // this didn't work, but we don't really know why.
+    // it seems to add some trailing bytes (white space) for non-ascii strings.
     //val cbuf = utf8.decode(java.nio.ByteBuffer.wrap(buf)).array
-    //sys.error("eiorjweoirjweiorj")
     new String(buf, utf8)
   }
 }
