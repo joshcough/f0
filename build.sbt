@@ -12,7 +12,7 @@ publishArtifact in (Compile, packageSrc) := false
 
 //logLevel := Level.Debug
 
-scalaVersion := "2.9.2"
+scalaVersion := "2.10.1"
 
 crossScalaVersions := Seq("2.9.2", "2.9.3", "2.10.0", "2.10.1")
 
