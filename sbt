@@ -435,9 +435,7 @@ EOM
 execRunner "$java_cmd" \
   $(get_mem_opts $sbt_mem) \
   $(get_jvm_opts) \
-  ${java_args[@]} -Ddb.dev.user=clarifidev -Ddb.dev.password=\$upp0rt1 \
+  ${java_args[@]} \
   -jar "$sbt_jar" \
   "${sbt_commands[@]}" \
   "${residual_args[@]}"
-
-#  ${java_args[@]} -Ddb.dev.user=clarifidev -Ddb.dev.password=\$upp0rt1 -Dfile.encoding="UTF-8"\

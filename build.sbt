@@ -2,7 +2,7 @@ name := "f0"
 
 organization := "clarifi"
 
-version := "v2"
+version := "0.2-SNAPSHOT"
 
 initialCommands := ""
 
