@@ -2,7 +2,7 @@ name := "f0"
 
 organization := "clarifi"
 
-description := "Streaming I/O for Scala"
+description := "Multi-language serialization protocol."
 
 version := "1.0"
 
