@@ -1,10 +1,10 @@
 name := "f0"
 
-organization := "clarifi"
+organization := "com.clarifi"
 
 description := "Multi-language serialization protocol."
 
-version := "1.0"
+version := "1.0.1"
 
 publishArtifact in (Compile, packageDoc) := false
 
@@ -27,6 +27,6 @@ libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.10.0" % "test"
 
 seq(bintraySettings:_*)
 
-licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
+licenses <++= (version)(v => Seq("MIT" -> url("https://github.com/joshcough/f0/blob/%s/LICENSE".format(v))))
 
 publishMavenStyle := true
