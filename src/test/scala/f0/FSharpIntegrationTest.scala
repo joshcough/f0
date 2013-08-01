@@ -1,3 +1,4 @@
+/**
 package f0
 import Readers._
 import Writers._
@@ -71,3 +72,4 @@ object FSharpIntegrationTest extends Properties("FSharpIntegrationTest"){
     writer.bind(sink)(values); sink.close; reader.bind(source).get
   }
 }
+**/
