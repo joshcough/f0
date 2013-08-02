@@ -6,10 +6,6 @@ description := "Multi-language serialization protocol."
 
 version := "1.0.1"
 
-publishArtifact in (Compile, packageDoc) := false
-
-publishArtifact in (Compile, packageSrc) := false
-
 scalaVersion := "2.10.2"
 
 crossScalaVersions := Seq("2.9.2", "2.10.1", "2.10.2")
