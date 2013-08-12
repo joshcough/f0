@@ -144,8 +144,8 @@ object Writers extends SumWriters {
     def bind(o: Sink) = {
       val bindA = w.bind(o)
       (as) => {
-        as.foreach(a => { o.writeBit(false); bindA(a) })
-        o.writeBit(true)
+        as.foreach(a => { o.writeByte(1); bindA(a) })
+        o.writeByte(0)
         effectW[StreamF[F1]]
       }
     }
@@ -159,11 +159,11 @@ object Writers extends SumWriters {
         var cont = true
         while (cont) {
           f(cur) match {
-            case Some((h,t)) => { o.writeBit(false); bindA(h); cur = t }
+            case Some((h,t)) => { o.writeByte(1); bindA(h); cur = t }
             case None => { cont = false }
           }
         }
-        o.writeBit(true)
+        o.writeByte(0)
         effectW[StreamF[F1]]
       }
     }

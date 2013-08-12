@@ -195,7 +195,7 @@ object Readers extends SumReaders {
       val elem = r.bind(s)
       var eof = false
       def get = {
-        eof = s.readBit
+        eof = s.readByte == 0
         if (eof) { eof = false; None }
         else Some(elem.get)
       }

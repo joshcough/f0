@@ -10,7 +10,7 @@ trait BitReader {
 }
 
 trait Source extends ByteReader with BitReader {
-  def apply[A,F](r:Reader[A,F]) = r.bind(this).get
+  def apply[A,F](r:Reader[A,F]): A = r.bind(this).get
   // TODO: these arent used, so im commenting them out - JC 11/29/11
   //def foldBytes[A](n: Int, z: A)(f: (A,Byte) => A): A
   //def state: Reg
