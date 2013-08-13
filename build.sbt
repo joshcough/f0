@@ -4,7 +4,7 @@ organization := "com.clarifi"
 
 description := "Multi-language serialization protocol."
 
-version := "1.0.1"
+version := "1.1"
 
 scalaVersion := "2.10.2"
 
