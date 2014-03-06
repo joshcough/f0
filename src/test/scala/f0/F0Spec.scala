@@ -12,7 +12,7 @@ object F0Spec extends Properties("F0") {
   implicit val stringArb = Arbitrary(Gen.alphaStr)
   def clone[A:Arbitrary,F](w: Writer[A,F], r: Reader[A,F]): Prop =
     forAll((a: A) => {
-      (r(w.toByteArray(a)) ?= a)
+      ?=(r(w.toByteArray(a)), a)
     })
 
   property("int") = clone(intW, intR)
