@@ -113,8 +113,8 @@ module Writers =
             member this.Bind(s:Sink) =
                 let bindA = w.Bind(s)
                 (fun (xs:seq<'a>) ->
-                    xs |> Seq.iter (fun x -> s.WriteBit(false); bindA(x); ())
-                    s.WriteBit(true)
+                    xs |> Seq.iter (fun x -> s.WriteBit(true); bindA(x); ())
+                    s.WriteBit(false)
                     ew
                 )
     }
@@ -130,11 +130,11 @@ module Writers =
                     while cont do
                         match f cur with
                         | Some (h,t) -> 
-                            o.WriteBit(false)
+                            o.WriteBit(true)
                             bindA(h)
                             cur <- t
                         | None -> cont <- false
-                    o.WriteBit(true)
+                    o.WriteBit(false)
                     ew
                 )
     }
