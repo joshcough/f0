@@ -121,14 +121,10 @@ module Readers =
         new Reader<Option<'a>,StreamF<'f>>() with 
             member this.Bind(s:Source) = 
                 let elem = r.Bind s
-                let eof = ref false
                 { 
                     new Get<Option<'a>> with member g.Get =
-                        eof := s.ReadBit
-                        if eof.Value then
-                            eof := false 
-                            None 
-                        else Some(elem.Get)
+                      if s.ReadBit then Some(elem.Get)
+                      else None  
                 }
     }
     let foldStreamR(r:Reader<'a,'f>)(z:'b)(f: ('b * 'a) -> 'b): Reader<'b, StreamF<'f>> = {

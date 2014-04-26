@@ -1,4 +1,3 @@
-/**
 package f0
 import Readers._
 import Writers._
@@ -53,18 +52,20 @@ object FSharpIntegrationTest extends Properties("FSharpIntegrationTest"){
   // make sure that we can write and read to files
   property("read and write to file") = secure {
     // writes to f0/test/data-from-scala.dat
-    val filename = "../test/data-from-scala.dat"
+    val filename = "test/data-from-scala.dat"
     val f = new java.io.File(filename); f.delete(); f.createNewFile()
     values ?= writeAndReadAllValues(Sinks.toFile(filename), Sources.fromFile(filename))
   }
 
   // finally, do the integration testing
-  property("write to and then read from f# process") = secure {
-    val p = Runtime.getRuntime.exec( "../fsharp/f0/RoundTripTester/bin/Debug/RoundTripTester.exe")
-    val result = writeAndReadAllValues(Sinks.toProcess(p), Sources.fromProcess(p))
-    //println(result)
-    values ?= result
-  }
+  val fSharpRoundTripTester = "fsharp/f0/RoundTripTester/bin/Debug/RoundTripTester.exe"
+  property("write to and then read from f# process") =
+    new java.io.File(fSharpRoundTripTester).exists ==> secure {
+      val p = Runtime.getRuntime.exec(fSharpRoundTripTester)
+      val result = writeAndReadAllValues(Sinks.toProcess(p), Sources.fromProcess(p))
+      //println(result)
+      values ?= result
+    }
 
   // writes all the 'values' to the given sink,
   // then reads them all back in from the given source
@@ -72,4 +73,3 @@ object FSharpIntegrationTest extends Properties("FSharpIntegrationTest"){
     writer.bind(sink)(values); sink.close; reader.bind(source).get
   }
 }
-**/
