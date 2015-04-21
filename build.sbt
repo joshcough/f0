@@ -8,9 +8,9 @@ description := "Multi-language serialization protocol."
 
 version := "1.1.1"
 
-scalaVersion := "2.10.3"
+scalaVersion := "2.11.6"
 
-crossScalaVersions := Seq("2.9.2", "2.9.3", "2.10.3", "2.11.0-RC1")
+crossScalaVersions := Seq("2.9.2", "2.9.3", "2.10.5", "2.11.6")
 
 scalacOptions ++= Seq("-deprecation", "-unchecked")
 
